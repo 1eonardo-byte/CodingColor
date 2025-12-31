@@ -1,35 +1,34 @@
 console.log("Inizio esecuzione");
-let d = new Date();
-
-
 let colori = [];
 
-document.getElementById("saluto").innerHTML = "Oggi è il " + d.getDay();
-
-
 function elabora() {
-    let numero = document.getElementById("inNumber").value;
-    
-    // serve per pulire sempre prima i messaggi, cancella quello che c'era prima
+    let numero = Number(document.getElementById("inNumber").value);
+
     document.getElementById("outText").innerHTML = "";
     document.getElementById("error").innerHTML = "";
 
-    //se il n. è compreso tra 0 e 255
     if (numero >= 0 && numero <= 255) {
-        // inserisce il numero dentro un array di colori 
+
         colori.push(numero);
 
         document.getElementById("outText").innerHTML =
             "Hai inserito il numero " + numero;
-        //visualizza la scritta + il numero scelto
 
-        //visualizza il colore scelto in base al numeno
-        document.getElementById("outText").innerHTML += "<br> i colori sono: " + colori;
-        console.log(colori);
+        document.getElementById("outText").innerHTML +=
+            "<br>I colori sono: " + colori;
 
-        if (colori.lemght == 3){
-            document.getElementById("outText").style.color = `rgd(${color[0]},${color[1]}, ${color[2]})`
-            
+        if (colori.length === 3) {
+            // Imposta il colore RGB nel testo
+            let rgb = `rgb(${colori[0]}, ${colori[1]}, ${colori[2]})`;
+            document.getElementById("outText").style.color = rgb;
+
+            // Mostra il colore nel quadrato
+            document.getElementById("colorBox").style.backgroundColor = rgb;
+
+            // Controlla se è rosso
+            if (colori[0] === 255 && colori[1] === 0 && colori[2] === 0) {
+                document.getElementById("outText").innerHTML;
+            }
         }
 
     } else {
@@ -39,8 +38,14 @@ function elabora() {
 }
 
 function reset() {
+    // Svuota il campo numero
     document.getElementById("inNumber").value = "";
+
+    // Svuota l'output e messaggio di errore, riportando poi il testo in nero
     document.getElementById("outText").innerHTML = "";
     document.getElementById("error").innerHTML = "";
+    document.getElementById("outText").style.color = "black";
+    // Svuota l'array dei numeri
     colori = [];
-} 
+}
+
