@@ -14,6 +14,7 @@ function elabora() {
     // Puliamo messaggi precedenti
     document.getElementById("error").innerHTML = "";
     document.getElementById("outText").innerHTML = "<h3>Output</h3>";
+    document.getElementById("outText").innerHTML = "<h3>Output</h3>";
 
   
     if (isNaN(valoreInput)) { //isNaN serve per controllare se un valore non è un numero.
@@ -84,4 +85,3 @@ function reset() {
     // Azzera davvero i numeri
     colori = [0, 0, 0];
 }
-
